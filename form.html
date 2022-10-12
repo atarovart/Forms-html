@@ -6,8 +6,11 @@
   <form action="file.php" method="POST" enctype="multipart/form-data">
   <div class="body">
   Почта:<br><br>
-  <input type="text" name="login"><br>
-  <input type="checkbox" checked ><label>Я хочу получать письма об акциях и предложениях</label><br><br>
+  <input type="text" name="login"><br><br>
+  <label for="myCheckbox01" class="checkbox" ><input class="checkbox__input" type="checkbox" id="myCheckbox01"><svg class="checkbox__icon"  width="23" height="23" viewBox="0 0 30 30" fill="#666" xmlns="http://www.w3.org/2000/svg">
+    <path class="tick" d="M22.2124 8.72363C21.9124 8.73563 21.6364 8.85563 21.4324 9.07164L11.9283 18.5757L8.55633 15.6597C8.10033 15.2277 7.3803 15.2517 6.94835 15.7077C6.5164 16.1637 6.54035 16.8837 6.99635 17.3156C7.02035 17.3396 7.04435 17.3636 7.08035 17.3876L11.2324 20.9997C11.6884 21.3837 12.3604 21.3597 12.7804 20.9397L23.0403 10.6797C23.4844 10.2357 23.4963 9.51569 23.0523 9.07173C22.8363 8.84373 22.5243 8.72373 22.2124 8.72373L22.2124 8.72363Z" fill="#000000"/>
+    <path  d="M29.16 30H0.839974C0.371976 30 0 29.628 0 29.16V0.839974C0 0.371976 0.371998 0 0.839974 0H29.16C29.628 0 30 0.371998 30 0.839974V29.16C30 29.628 29.628 30 29.16 30ZM1.19984 28.8H28.7996V1.20022H1.19984V28.8Z" fill="#000000"/>
+    </svg><span class="checkbox__label">Я хочу получать письма об акциях и предложениях</span></label><br><br>
   Пароль:<br><br>
   <input type="password" name="passw" ><br><br>
   Повторите пароль:<br><br>
@@ -18,15 +21,43 @@
   <input type="text" name="promo" size="20"><br><br> 
   Выберите скидку:<br><br>
   <select name="theme">
-  <option value="0" selected>Случайно</option> <option value="1">Скидка на первую съемку 20%</option>
+  <div class="options" >
+  <option value="0" selected>Случайно</option> 
+  <option value="1">Скидка на первую съемку 20%</option>
   <option value="2">Скидка на 3 съемки 10%</option>
-  <option value="3">Пятая съемка бесплатно</option>
+  <option value="3">Пятая съемка бесплатно</option></div>
   </select><br><br>
  <input type="reset" value="Очистить">
   <input type="submit" value="Отправить">
   </div> </form><br><br>
   </body> 
   <style>
+.checkbox {
+  cursor: pointer;
+  
+}
+.tick {
+	display:none;
+}
+.checkbox__input {
+  opacity: 0;
+  cursor: pointer;
+  
+}
+
+.checkbox__icon {
+  flex-shrink: 0;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+.checkbox__label {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.checkbox__input:checked + .checkbox__icon .tick {
+  display:inline-flex;
+}
     @font-face {
     font-family: Inter Medium; 
     src: url(Inter-Medium.otf); 
@@ -94,6 +125,11 @@
     select:hover {
       background: #000000 !important; 
       color:#ffffff;
+    }
+    .options {
+      
+      font-size: 14px; 
+      font-family: Inter Regular; 
     }
     select:active {
       background: #808080 !important; 
